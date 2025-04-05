@@ -1,19 +1,17 @@
-let button_1 = document.querySelector('.counter__add-button');
-let button_2 = document.querySelector('.counter__minus-button')
-let counterText = document.querySelector('.counter__value')
+const numberOfPools = document.getElementById('NumberOfPools')
+const buttonCountUp = document.getElementById('counterUp')
+const buttonCountDown = document.getElementById('counterDown')
 
-
-const COUNTER_INITIAL_VALUE = 0;
-
+const COUNTER_INITIAL_VALUE = 0
 let counter = COUNTER_INITIAL_VALUE
 
-button_1.addEventListener('click', function () {
-    counter = counter + 1;
-    counterText.innerText = counter;
+buttonCountUp.addEventListener('click', () => {
+	counter += 1
 
+	numberOfPools.innerText = counter
 })
 
-button_2.addEventListener('click', function () {
-    counter = COUNTER_INITIAL_VALUE;
-    counterText.innerText = counter;
+buttonCountDown.addEventListener('click', () => {
+	counter = COUNTER_INITIAL_VALUE
+	numberOfPools.innerText = COUNTER_INITIAL_VALUE
 })
