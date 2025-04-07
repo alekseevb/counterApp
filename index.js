@@ -16,22 +16,36 @@ buttonCountDown.addEventListener('click', () => {
 	numberOfPools.innerText = COUNTER_INITIAL_VALUE
 })
 
-//Другое решение
+// второе решение
 let INITIAL_VALUE_POOL = 0
 
 class PoolCounter {
-	constructor() {}
+	constructor(displayElement) {
+		this.displayElement = displayElement
+		this.counter = INITIAL_VALUE_POOL
+		this.showNumber()
+	}
 
-	displayNumber() {}
+	showNumber() {
+		this.displayElement.innerText = this.counter
+	}
 
-	counterUp() {}
+	calculateNumberUp() {
+		this.counter += 1
+		this.showNumber()
+	}
 
-	reset() {}
+	resetNumber() {
+		this.counter = INITIAL_VALUE_POOL
+		this.showNumber()
+	}
 }
 
-const buttonCounterUp = document.getElementById('#counterUp')
-const buttonReset = document.getElementById('#counterDown')
-const NumberOfPools = document.getElementById('#NumberOfPools')
+const buttonCounterUp = document.getElementById('counterUp')
+const buttonReset = document.getElementById('counterDown')
+const numberOfPools = document.getElementById('NumberOfPools')
 
-buttonCounterUp.addEventListener('click', () => PoolCounter.counterUp)
-buttonReset.addEventListener('click', () => PoolCounter.reset)
+const poolCounter = new PoolCounter(numberOfPools)
+
+buttonCounterUp.addEventListener('click', () => poolCounter.calculateNumberUp())
+buttonReset.addEventListener('click', () => poolCounter.resetNumber())
